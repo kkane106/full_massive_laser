@@ -6,7 +6,16 @@ class TicketsController < ApplicationController
   end
 
   def create
-    p params[:ticket]
+    user = User.find(session[:id])
+    @ticket = user.tickets.create(ticket_params)
+    # @ticket = Ticket.create(ticket_params)
+    if @ticket.valid?
+      flash[:success] = "Your ticket has been created successfully!"
+      # redirect_to user()
+    else
+      flash[:error] = @ticket.errors.full_messages
+      redirect_to new_ticket_path
+    end
   end
 
   def new
@@ -15,5 +24,10 @@ class TicketsController < ApplicationController
   end
 
   def update
+  end
+
+  private
+  def ticket_params
+    params.require(:ticket).permit(:title, :body, :profession_id, :user_id)
   end
 end
