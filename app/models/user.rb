@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
 	has_many :professions, through: :professionals
 	has_many :tickets
 	has_many :professionals
