@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
 	validates :name, :email, :password, presence: true
 
-	# has_secure_password
+	has_secure_password
 	def pro?
 		user = User.find(session[:user_id])
 		if user
