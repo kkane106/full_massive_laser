@@ -7,3 +7,11 @@ class Ticket < ActiveRecord::Base
     self.title.split("")[0..15].join("")+"..."
   end
 end
+
+def claimed?
+	if self.professional
+		return "Claimed" 
+	else
+		"Unclaimed"
+end
+end

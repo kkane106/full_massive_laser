@@ -1,1 +1,12 @@
-<h1>Professional Show</h1>
+<div class="col col-12">
+	<div class="center">
+		<h3>My Open Tickets</h3>
+	</div>
+	<% @tickets.each do |ticket| %>
+	 <div class="left">
+          <h1 class="h2 m0">
+            <span class="h4 inline-block button-small white bg-red rounded right"></span>
+          </h1>
+        </div>
+        <% end %>
+</div>
