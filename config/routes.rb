@@ -1,18 +1,8 @@
 Rails.application.routes.draw do
-  get 'tickets/index'
-
-  get 'tickets/show'
-
-  get 'tickets/create'
-
-  get 'tickets/new'
-
-  get 'tickets/update'
-
 resources :users
-resources :appointments
+resources :tickets
 resources :professions
-root 'professions#index'
+root 'tickets#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
