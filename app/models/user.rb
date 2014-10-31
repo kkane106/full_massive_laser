@@ -9,8 +9,6 @@ class User < ActiveRecord::Base
 	validates :password, length: { minimum: 4 }
 	has_secure_password
 	def pro?
-		user = User.find(session[:user_id])
-		if user
-		end
+		self.professions.length > 0
 	end
 end

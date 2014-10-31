@@ -4,7 +4,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(session[:user_id])
+    if @user.pro?
+      render "users/_pro_show"
+    else
+      render "users/_user_show"
+    end
   end
 
   def new

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 resources :users
 resources :tickets
 resources :professions
+resources :professionals
 root 'tickets#index'
 
 get "/signin", to: "sessions#new"
