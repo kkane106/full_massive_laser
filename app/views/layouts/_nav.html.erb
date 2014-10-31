@@ -1,4 +1,16 @@
-<div>
-  <%= link_to "Home", tickets %>
-  <%= link_to "Professions", professions %>
+<div class="clearfix mb2 white bg-dark-gray">
+  <div class="left">
+    <a href="/" class="button py2 m0 button-nav-dark">Home</a>
+    <a href="/professions" class="button button-narrow py2 m0 button-nav-dark">Professions</a>
+  </div>
+  <div class="right">
+    <a href="#" class="button py2 m0 button-nav-dark">My Account</a>
+  </div>
+  <div class="clearfix sm-hide"></div>
+  <% if session[:id] %>
+    <div class="overflow-hidden px2 py1">
+      <input type="text" class="mb0 right fit field-dark" placeholder="Email">
+      <input type="text" class="mb0 right fit field-dark" placeholder="Password">
+    </div>
+  <% end %>
 </div>
