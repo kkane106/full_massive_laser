@@ -1,0 +1,19 @@
+<% if flash[:error] %>
+<div class="bold center p2 mb2 white bg-red rounded">
+  <ul class="no-bottom-margin">
+    <% flash[:error].each do |message| %>
+      <li class="no-bullet" data-error><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<% if flash[:success] %>
+<div class="bold center p2 white bg-green rounded">
+  <ul class="no-bottom-margin">
+    <% flash[:success].each do |message| %>
+      <li class="no-bullet" data-error><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
