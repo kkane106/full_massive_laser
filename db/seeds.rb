@@ -16,11 +16,11 @@ end
 
 
 20.times do
-	Proficiency.create(user_id: User.all.sample.id, profession_id: Profession.all.sample.id)
+	Professional.create(user_id: User.all.sample.id, profession_id: Profession.all.sample.id)
 end
 
 
 30.times do
-	proficiency = Proficiency.all.sample
+	proficiency = Professional.all.sample
 	Ticket.create(user_id: User.all.sample.id, proficiency_id: proficiency.id, profession_id: proficiency.profession )
 end

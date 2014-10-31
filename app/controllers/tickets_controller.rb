@@ -6,9 +6,11 @@ class TicketsController < ApplicationController
   end
 
   def create
+    p params[:ticket]
   end
 
   def new
+    @ticket = Ticket.new
   end
 
   def update
