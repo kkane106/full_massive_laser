@@ -2,6 +2,9 @@ class TicketsController < ApplicationController
 
 
   def index
+    @user = User.find(session[:user_id])
+    redirect_to root_path unless @user.pro?
+    @tickets = Ticket.all
   end
 
   def show
