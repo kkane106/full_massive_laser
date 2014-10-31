@@ -5,7 +5,15 @@
         <div class="p2 bg-yellow">
           <h1 class="h2 m0">
             <%= @ticket.title %>
-            <span class="h4 inline-block button-small white bg-red rounded right">Unclaimed</span>
+            <% if @ticket.professional.nil? %>
+            <span class="h4 inline-block button-small white bg-red rounded right">
+             Unclaimed
+             </span>
+            <% else %>
+              <span class="h4 inline-block button-small white bg-green rounded right">
+             Claimed
+             </span>
+            <% end %>
           </h1>
         </div>
         <div class="p1">

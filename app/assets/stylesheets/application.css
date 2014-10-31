@@ -30,4 +30,15 @@
 
 .ticket-btn {
   margin-top: 10%;
+
+.black{
+  color: black;
+}
+
+.user-img {
+	max-width: 80%;
+}
+
+.user-text {
+	padding-top: 5%;
 }

@@ -1,9 +1,12 @@
 source 'https://rubygems.org'
 
+
+ruby "2.0.0"
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
-# Use postgresql as the database for Active Record
-gem 'pg'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -28,12 +31,19 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Travis CI
+gem 'travis-lint'
+
 # Test group
 gem "rspec-rails", :group => [:test, :development]
 group :test do
-  gem "factory_girl_rails"
-  gem "capybara"
-  gem 'shoulda-matchers', require: false
+	gem "factory_girl_rails"
+	gem "capybara"
+	gem 'shoulda-matchers', require: false
 end
 
+group :production do
+	gem 'pg'
+	gem 'rails_12factor'
+end
 

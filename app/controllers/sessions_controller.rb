@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+skip_before_filter :require_login
 	def new
 	end
 
@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 		if user && user.authenticate(params[:signin][:password])
 			session[:user_id] = user.id
 			flash[:notice] = "You have signed in successfully."
-			redirect_to root_url
+			redirect_to new_ticket_path
 		else
 			flash[:error] = "Login credentials incorrect, please try again"
 			render :new
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		session[:user_id] = nil
+		reset_session
 		flash[:notice] = "You have signed out successfully."
 		redirect_to root_url
 	end
