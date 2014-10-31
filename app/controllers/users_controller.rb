@@ -1,30 +1,18 @@
 class UsersController < ApplicationController
 
-	# def index
-	# end
+  def index
+  end
 
-	# def show
-	# end
+  def show
+  end
 
-	# def new
-	# end
+  def create
+  end
 
-	# def create
-	# end
+  def new
+  end
 
-	# def edit
-	# end
-
-	# def update
-	# end
-
-	# def destroy
-	# end
-
-	# private
-
-	# def user_params
-	# 	params.require().permit()
-	# end
-
+  def update
+  end
 end
+

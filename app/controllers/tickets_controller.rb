@@ -1,5 +1,4 @@
-class ProfessionsController < ApplicationController
-
+class TicketsController < ApplicationController
   def index
   end
 
@@ -15,4 +14,3 @@ class ProfessionsController < ApplicationController
   def update
   end
 end
-
