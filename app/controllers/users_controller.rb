@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(session[:user_id])
+    redirect_to professional_path(user_id: @user.id) if
   end
 
   def new
