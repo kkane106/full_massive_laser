@@ -1,9 +1,9 @@
-class TicketsController < ApplicationController
+class ProfessionalsController < ApplicationController
+
   def index
   end
 
   def show
-    
   end
 
   def create
@@ -15,3 +15,4 @@ class TicketsController < ApplicationController
   def update
   end
 end
+
