@@ -15,10 +15,19 @@
  *= require basscss
  */
 
+
 .no-bullet{
   list-style-type: none;
 }
 
 .no-bottom-margin{
   margin-bottom: 0px;
+}
+
+.ticket-img {
+  max-width: 150px;
+}
+
+.ticket-btn {
+  margin-top: 10%;
 }
