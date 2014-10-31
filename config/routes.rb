@@ -5,12 +5,13 @@ resources :tickets
 resources :professions
 resources :professionals
 # resources :sessions
-root 'sessions#new'
+
 
 get "/signin", to: "sessions#new"
 post "/signin", to: "sessions#create"
 
 delete "/signout", to: "sessions#destroy", as: "signout"
+root 'sessions#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
