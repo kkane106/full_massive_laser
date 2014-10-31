@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'tickets/index'
+
+  get 'tickets/show'
+
+  get 'tickets/create'
+
+  get 'tickets/new'
+
+  get 'tickets/update'
+
 resources :users
 resources :appointments
 resources :professions

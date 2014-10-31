@@ -1,4 +1,4 @@
-class AppointmentsController < ApplicationController
+class TicketsController < ApplicationController
   def index
   end
 
