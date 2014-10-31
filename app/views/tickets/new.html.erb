@@ -1,16 +1,17 @@
+
+
 <%= form_for @ticket, :html => { :class => "sm-col-6"} do |f| %>
 <fieldset class="fieldset-reset">
-  <legend class="h3 bold">New Ticket</legend>
+  <legend class="h3 bold">Create Ticket</legend>
   <%= f.label :title %><br>
-  <%= f.text_field :title %><br>
+  <%= f.text_field :title, class: "block full-width field-light" %>
 
   <%= f.label :body %><br>
-  <%= f.text_area :body %><br>
+  <%= f.text_area :body, class: "block full-width field-light" %>
 
-
-
+  <%= f.label :profession %><br>
+  <%= f.collection_select :profession_id,  Profession.all, :id, :name %>
 
 </fieldset>
-
-  <%= f.submit %>
+<%= button_tag(type: 'submit', :class => 'button-blue') {content_tag(:strong, 'Submit')} %>
 <% end %>

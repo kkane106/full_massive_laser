@@ -16,13 +16,7 @@ ActiveRecord::Schema.define(version: 20141031031739) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "professions", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "proficiencies", force: true do |t|
+  create_table "professionals", force: true do |t|
     t.integer  "user_id"
     t.integer  "profession_id"
     t.integer  "years_of_exp"
@@ -31,10 +25,18 @@ ActiveRecord::Schema.define(version: 20141031031739) do
     t.datetime "updated_at"
   end
 
+  create_table "professions", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tickets", force: true do |t|
     t.integer  "user_id"
-    t.integer  "proficiency_id"
+    t.integer  "professional_id"
     t.integer  "profession_id"
+    t.string   "title"
+    t.text     "body"
     t.string   "hangout_url"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -42,7 +44,7 @@ ActiveRecord::Schema.define(version: 20141031031739) do
 
   create_table "users", force: true do |t|
     t.string   "email"
-    t.string   "password"
+    t.string   "password_digest"
     t.string   "name"
     t.string   "avatar"
     t.datetime "created_at"
