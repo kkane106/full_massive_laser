@@ -14,3 +14,4 @@ def claimed?
 	else
 		"Unclaimed"
 end
+end
