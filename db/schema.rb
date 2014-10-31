@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20141031031739) do
 
   create_table "tickets", force: true do |t|
     t.integer  "user_id"
-    t.integer  "proficiency_id"
+    t.integer  "professional_id"
     t.integer  "profession_id"
     t.string   "title"
     t.text     "body"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20141031031739) do
 
   create_table "users", force: true do |t|
     t.string   "email"
-    t.string   "password"
+    t.string   "password_digest"
     t.string   "name"
     t.string   "avatar"
     t.datetime "created_at"

@@ -4,13 +4,22 @@
     <a href="/professions" class="button button-narrow py2 m0 button-nav-dark">Professions</a>
   </div>
   <div class="right">
-    <a href="#" class="button py2 m0 button-nav-dark">My Account</a>
   </div>
   <div class="clearfix sm-hide"></div>
-  <% if session[:id] %>
-    <div class="overflow-hidden px2 py1">
-      <input type="text" class="mb0 right fit field-dark" placeholder="Email">
-      <input type="text" class="mb0 right fit field-dark" placeholder="Password">
-    </div>
-  <% end %>
+  <% if session[:user_id].nil? %>
+  <div class="right">
+  <!--   <input type="text" class="mb0 right fit field-dark" placeholder="Email">
+  <input type="text" class="mb0 right fit field-dark" placeholder="Password"> -->
+  <%= link_to "Register", new_user_path, class: "button py2 m0 button-nav-dark" %>
+  <%= link_to "Sign in", signin_path, class: "button py2 m0 button-nav-dark" %>
+  </div>
+
+<% else %>
+<a href="#" class="button py2 m0 button-nav-dark">My Account</a>
+<div class="overflow-hidden px2 py1">
+  <div class="right">
+    <%= link_to "Sign out", signout_path, method: :delete, class: "button py2 m0 button-nav-dark" %>
+  </div>
+</div>
+<% end %>
 </div>

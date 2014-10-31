@@ -28,7 +28,7 @@ users.push test_user
 	current_user = r['results'][0]['user']
 
   users.push({
-		:name => current_user['name']['first'] + current_user['name']['last'],
+		:name => current_user['name']['first'] + " " + current_user['name']['last'],
 		:email => current_user['email'],
 		# :password => current_user['password'],
 		:password => "password",
