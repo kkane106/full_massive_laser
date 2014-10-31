@@ -1,7 +1,7 @@
 
 <%= form_for @ticket, :html => { :class => "sm-col-6"} do |f| %>
-  <fieldset class="fieldset-reset">
-    <legend class="h3 bold">Create Ticket</legend>
+<fieldset class="fieldset-reset">
+  <legend class="h3 bold">Create Ticket</legend>
   <%= f.label :title %><br>
   <%= f.text_field :title, class: "block full-width field-light" %>
 
@@ -9,8 +9,8 @@
   <%= f.text_area :body, class: "block full-width field-light" %>
 
   <%= f.label :profession %><br>
-  <%= f.select_tag "profession", options_from_collection_for_select(@professions, "id", "name") %>
+  <%= f.collection_select :profession_id,  Profession.all, :id, :name %>
 
-  </fieldset>
-  <%= button_tag(type: 'submit', :class => 'button-blue') {content_tag(:strong, 'Submit')} %>
+</fieldset>
+<%= button_tag(type: 'submit', :class => 'button-blue') {content_tag(:strong, 'Submit')} %>
 <% end %>
