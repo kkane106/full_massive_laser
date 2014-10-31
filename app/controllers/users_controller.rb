@@ -5,7 +5,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(session[:user_id])
-    redirect_to professional_path(user_id: @user.id) if
+    if @user.pro?
+      render "users/_pro_show"
+    else
+      render "users/_user_show"
+    end
   end
 
   def new

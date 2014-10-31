@@ -8,8 +8,6 @@ class User < ActiveRecord::Base
 
 	has_secure_password
 	def pro?
-		user = User.find(session[:user_id])
-		if user
-		end
+		self.professions.length > 0
 	end
 end
