@@ -1,19 +1,18 @@
 class TicketsController < ApplicationController
 
-  
+
   def index
   end
 
   def show
-    
+
   end
 
   def create
-    user = User.find(session[:id])
+    user = User.find(session[:user_id])
     @ticket = user.tickets.create(ticket_params)
-    # @ticket = Ticket.create(ticket_params)
     if @ticket.valid?
-      flash[:success] = "Your ticket has been created successfully!"
+      flash[:success] = ["Your ticket has been created successfully!"]
       # redirect_to user()
     else
       flash[:error] = @ticket.errors.full_messages
