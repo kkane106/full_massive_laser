@@ -1,4 +1,5 @@
 class Profession < ActiveRecord::Base
-	has_many :proficiencies
+	has_many :professionals
+	has_many :users
 	
 end
