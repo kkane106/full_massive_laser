@@ -2,6 +2,7 @@ class TicketsController < ApplicationController
 
 
   def index
+    redirect_to signin_path if session[:user_id] == nil
     @user = User.find(session[:user_id])
     redirect_to root_path unless @user.pro?
     @tickets = Ticket.all

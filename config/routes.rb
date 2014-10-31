@@ -4,7 +4,8 @@ resources :users
 resources :tickets
 resources :professions
 resources :professionals
-root 'tickets#index'
+# resources :sessions
+root 'sessions#new'
 
 get "/signin", to: "sessions#new"
 post "/signin", to: "sessions#create"
