@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20141031031739) do
 
   create_table "tickets", force: true do |t|
     t.integer  "user_id"
-    t.integer  "proficiency_id"
+    t.integer  "professional_id"
     t.integer  "profession_id"
     t.string   "title"
     t.text     "body"
