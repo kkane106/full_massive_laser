@@ -4,6 +4,8 @@ class CreateTickets < ActiveRecord::Migration
     	t.references :user
     	t.references :proficiency
     	t.references :profession
+    	t.string :title
+    	t.text :body
     	t.string :hangout_url
 
       t.timestamps

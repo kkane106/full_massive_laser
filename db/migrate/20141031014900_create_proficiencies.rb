@@ -1,6 +1,6 @@
-class CreateProficiencies < ActiveRecord::Migration
+class CreateProfessionals < ActiveRecord::Migration
   def change
-    create_table :proficiencies do |t|
+    create_table :professionals do |t|
     	t.references :user
     	t.references :profession
     	t.integer :years_of_exp
