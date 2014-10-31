@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby "2.1.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
@@ -35,9 +35,13 @@ gem 'travis-lint'
 # Test group
 gem "rspec-rails", :group => [:test, :development]
 group :test do
-  gem "factory_girl_rails"
-  gem "capybara"
-  gem 'shoulda-matchers', require: false
+	gem "factory_girl_rails"
+	gem "capybara"
+	gem 'shoulda-matchers', require: false
 end
 
+group :production do
+	gem 'pg'
+	gem 'rails_12factor'
+end
 
