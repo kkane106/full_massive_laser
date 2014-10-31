@@ -1,0 +1,8 @@
+---
+:users:
+- :name: sean
+  :email: test@test.com
+  :password: password
+:professions: []
+:proficiencies: []
+:appointments: []
