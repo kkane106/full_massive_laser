@@ -11,6 +11,7 @@ class TicketsController < ApplicationController
 
   def new
     @ticket = Ticket.new
+    @professions = Profession.all
   end
 
   def update
