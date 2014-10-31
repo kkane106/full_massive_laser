@@ -1,7 +1,8 @@
 <div class="clearfix mb2 white bg-dark-gray">
   <div class="left">
-    <a href="/" class="button py2 m0 button-nav-dark">Home</a>
-    <a href="/professions" class="button py2 m0 button-nav-dark">Professions</a>
+    <%= link_to "Home", root_path, class: "button py2 m0 button-nav-dark" %>
+    <%= link_to "Professions", professions_path, class: "button py2 m0 button-nav-dark" %>
+    <%= link_to "New Ticket", new_ticket_path, class: "button py2 m0 button-nav-dark" %>
     <a href="#" class="button py2 m0 button-nav-dark">My Account</a>
   </div>
   <% if session[:user_id].nil? %>

@@ -5,7 +5,7 @@ class TicketsController < ApplicationController
   end
 
   def show
-
+    @ticket = Ticket.find(params[:id])
   end
 
   def create
@@ -13,7 +13,7 @@ class TicketsController < ApplicationController
     ticket = user.tickets.create(ticket_params)
     if ticket.valid?
       flash[:success] = ["Your ticket has been created successfully!"]
-      redirect_to user
+      redirect_to ticket
     else
       flash[:error] = @ticket.errors.full_messages
       redirect_to new_ticket_path

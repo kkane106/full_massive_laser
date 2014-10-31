@@ -1,2 +1,27 @@
-<h1>Tickets#show</h1>
-<p>Find me in app/views/tickets/show.html.erb</p>
+<div class="container">
+  <div class="clearfix">
+    <div class="col col-12 p1">
+      <div class="overflow-hidden bg-white border rounded">
+        <div class="p2 bg-light-gray">
+          <h1 class="h2 m0">
+            <%= @ticket.title %>
+            <span class="h4 inline-block button-small white bg-red rounded right">Unclaimed</span>
+          </h1>
+        </div>
+        <div class="p2">
+          <div class="clearfix">
+            <div class="col col-4 p1">
+              <%= image_tag "#{@ticket.user.avatar}", class: "circle ticket-img p3 left" %>
+            </div>
+            <div class="col col-4 p1 center ticket-btn">
+            <%= button_tag(type: 'submit', :class => 'button-gray mb1') {content_tag(:strong, 'Google Hangout')} %>
+            </div>
+            <div class="col col-4 p1">
+              <%= image_tag "#{@ticket.professional.user.avatar}", class: "circle ticket-img p3 right" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
