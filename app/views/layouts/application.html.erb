@@ -9,6 +9,11 @@
 </head>
 <body>
 <%= render "layouts/nav" %>
+<% if session[:user_id].nil? %>
+	<%= "YOU ARE NOT LOGGED IN!" %>
+	<% else %>
+	<%= "YOU ARE LOGGED IN!" %>
+<% end %>
 <%= yield %>
 
 </body>
