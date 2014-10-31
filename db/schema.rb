@@ -11,23 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031003958) do
+ActiveRecord::Schema.define(version: 20141031031739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "appointments", force: true do |t|
-    t.string   "title"
-    t.string   "start"
-    t.string   "end"
-    t.integer  "client_id"
-    t.integer  "professional_id"
+  create_table "professions", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "professions", force: true do |t|
-    t.string   "name"
+  create_table "proficiencies", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "profession_id"
+    t.integer  "years_of_exp"
+    t.text     "bio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tickets", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "proficiency_id"
+    t.integer  "profession_id"
+    t.string   "hangout_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -36,6 +44,7 @@ ActiveRecord::Schema.define(version: 20141031003958) do
     t.string   "email"
     t.string   "password"
     t.string   "name"
+    t.string   "avatar"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
