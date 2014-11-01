@@ -3,7 +3,10 @@
     <%= link_to "Home", root_path, class: "button py2 m0 button-nav-dark" %>
     <%= link_to "Professions", professions_path, class: "button py2 m0 button-nav-dark" %>
     <%= link_to "New Ticket", new_ticket_path, class: "button py2 m0 button-nav-dark" %>
-    <a href="#" class="button py2 m0 button-nav-dark">My Account</a>
+    <% if session[:user_id] %>
+    <%= link_to "My Account", user_path(session[:user_id]), class: "button py2 m0 button-nav-dark" %>
+    <% end %>
+
   </div>
   <% if session[:user_id].nil? %>
   <div class="right">

@@ -5,7 +5,6 @@ resources :users
 resources :tickets
 resources :professions
 
-root 'welcome#index'
 
 resources :professionals
 
