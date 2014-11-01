@@ -1,1 +1,22 @@
-<h1>User show</h1>
+<div class="col col-12">
+	<div class="center">
+		<h3>My Open Tickets</h3>
+	</div>
+	<% @tickets.each do |ticket| %>
+	 <div class="clearfix">
+    <div class="col col-12 p1">
+      <div class="overflow-hidden bg-white border rounded">
+        <div class="p2 bg-yellow">
+          <h1 class="h3 m0"> <%= ticket.title %> </h1>
+          <span class="h4 inline-block button-small white bg-red rounded right">
+            <%= ticket.profession.name %>
+          </span>
+
+        </div>
+        <span>
+          <%= ticket.body %>
+        </span>
+      </div>
+    </div>
+  <% end %>
+</div>
