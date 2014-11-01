@@ -5,10 +5,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(session[:user_id])
+    @professions = @user.professionals
     if @user.pro?
       @tickets = @user.professionals.first.tickets
     else
-      @tickets = ["lol"]
+      @tickets = @user.tickets
     end
   end
 
