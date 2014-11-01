@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20141031031739) do
     t.integer  "user_id"
     t.integer  "professional_id"
     t.integer  "profession_id"
+    t.boolean  "closed",          default: false
     t.string   "title"
     t.text     "body"
     t.string   "hangout_url"

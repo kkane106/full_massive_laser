@@ -31,7 +31,7 @@ professionals = Professional.all
 		Ticket.create(
 			user_id: User.all.sample.id,
 			professional_id: professional.id,
-			profession_id: professional.profession,
+			profession_id: professional.profession.id,
 			title: "Help I think I broke some of my shit! Can somebody help?",
 			body: "
 			example body text goes here, but then again maybe not. please help me fix my kitchen sink.

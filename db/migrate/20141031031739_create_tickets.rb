@@ -4,6 +4,7 @@ class CreateTickets < ActiveRecord::Migration
     	t.references :user
     	t.references :professional
     	t.references :profession
+      t.boolean :closed, default: false
     	t.string :title
     	t.text :body
     	t.string :hangout_url
