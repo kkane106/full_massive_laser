@@ -18,9 +18,10 @@
 
 		</div>
 		</div>
-<%= render "pro_show" %>
-				
-			</div>
+		<% if @user.pro? %>
+			<%= render "pro_show" %>
+		<% end %>
+		</div>
 	</div>
 </div>
 </div>
@@ -28,14 +29,7 @@
 </div>
 
 
-
-
-
-
-
-
-
 <% if @user.pro? %>
 <% else %>
-<%= render "users/_user_show" %>
+<%= render "users/user_show" %>
 <% end %>
