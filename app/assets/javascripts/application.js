@@ -15,11 +15,8 @@
 //= require_tree .
 
 $(document).ready(function() {
-  console.log("document ready")
-  testFunction = function(){console.log("apple")}
   $('body').on("click", '[data_pro="true"]', function(event) {
     event.preventDefault()
-    console.log("clicked")
     var ticket_update_url = "/tickets/" + $('[data-ticket]').data().ticket
     $.ajax({
       url: ticket_update_url,
