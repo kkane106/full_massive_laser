@@ -1,0 +1,16 @@
+<h1>Make yourself a pro!</h1>
+<%= form_for @professional do |f| %>
+<p>
+	<%= f.label :profession %><br>
+	<%= f.collection_select :profession_id,  Profession.all, :id, :name %>\
+</p>
+<p>
+	<%= f.label :years_of_exp %>
+	<%= f.number_field :years_of_exp %>
+</p>
+<p>
+	<%= f.label :bio %>
+	<%= f.text_area :bio %>
+</p>
+<%= f.submit "Submit" %>
+<% end %>
