@@ -7,12 +7,12 @@ class Ticket < ActiveRecord::Base
   def shortened_title
     self.title.split("")[0..15].join("")+"..."
   end
-end
 
-def claimed?
-	if self.professional
-		return "Claimed"
-	else
-		"Unclaimed"
-end
+  def claimed?
+  	if self.professional
+  		return "Claimed"
+  	else
+  		return "Unclaimed"
+    end
+  end
 end
