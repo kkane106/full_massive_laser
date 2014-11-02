@@ -1,29 +1,34 @@
-<div class="clearfix">
-    <% @tickets.each do |ticket| %>
-    <div class="col col-4 p1">
+<div class="container">
+  <div class="clearfix">
+    <div class="col col-12 p1">
       <div class="overflow-hidden bg-white border rounded">
-        <div class="p2 bg-light-gray">
-          <h1 class="h4 m0">
-            <span class="black"><%= ticket.shortened_title %></span>
-            <% if ticket.professional.nil? %>
-            <span class="h4 inline-block button-small white bg-red rounded right">
-             Unclaimed
-             </span>
-            <% else %>
-              <span class="h4 inline-block button-small white bg-green rounded right">
-             Claimed
-             </span>
-            <% end %>
+
+        <div class="p2 bg-yellow">
+          <h1 class="h2 m0">
+            Your Claimed Tickets
           </h1>
         </div>
-        <div class="p2 center">
-         <%= link_to ticket do %>
-          <button type="button" class="h5 button-blue">View</button>
-         <% end %>
 
+        <div class="overflow-scroll">
+        <table class="table-light">
+        <thead>
+          <tr>
+            <th>User</th> <th>Category</th> <th>Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @claimed_tickets.each do |ticket| %>
+          <tr data-link="<%= ticket_path(ticket) %>">
+            <td><%= ticket.user.name %></td>
+            <td><%= ticket.profession.name %></td>
+            <td><%= ticket.title %></td>
+          </tr>
+          <% end %>
+        </tbody>
+        </table>
         </div>
+
       </div>
     </div>
-    <% end %>
-    </div>
   </div>
+</div>

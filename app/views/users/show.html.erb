@@ -1,7 +1,9 @@
 <%= render "users/profile" %>
 
-<% if @user.pro? %>
-<%= render "users/pro_show" %>
-<% else %>
-<%= render "users/user_show" %>
+<hr>
+
+<% if session[:user_id] == @user.id %>
+	<%= render "users/pro_show" %>
 <% end %>
+
+<hr>
