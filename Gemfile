@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 ruby "2.0.0"
 
+
 gem 'pry'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
@@ -47,3 +48,5 @@ group :production do
 	gem 'rails_12factor'
 end
 
+gem "omniauth-google-oauth2"
+gem "dotenv-rails"
