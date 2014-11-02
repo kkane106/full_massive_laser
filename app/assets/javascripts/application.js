@@ -15,16 +15,15 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $('[data_claim="claim"]').click(function(event) {
-
-    console.log("clicked")
-    console.log($('[data-ticket]').data().ticket)
-    var url = "/tickets/" + $('[data-ticket]').data().ticket
+  $('body').on("click", '[data_pro="true"]', function(event) {
+    event.preventDefault()
+    var ticket_update_url = "/tickets/" + $('[data-ticket]').data().ticket
     $.ajax({
-      url: url,
+      url: ticket_update_url,
       type: 'PUT'
     }).success(function(response) {
-      console.log(response)
+      $('[data-ticket-show]').empty()
+      $('[data-ticket-show]').append(response.toString())
     })
   })
 });

@@ -31,7 +31,7 @@ class ProfessionalsController < ApplicationController
   	end
   end
 
-
+  private
   def professional_params
       params.require(:professional).permit(:bio, :years_of_exp, :profession_id)
   end
