@@ -5,7 +5,11 @@ class TicketsController < ApplicationController
     redirect_to signin_path if session[:user_id] == nil
     @user = User.find(session[:user_id])
     redirect_to root_path unless @user.pro?
-    @tickets = Ticket.all
+    @tickets = []
+    @user.professions.each do |profession|
+      @tickets.push(profession.tickets.where(professional_id: nil))
+    end
+    @tickets.flatten!
   end
 
   def show

@@ -6,17 +6,21 @@
           <h1 class="h4 m0">
             <span class="black"><%= ticket.shortened_title %></span>
             <% if ticket.professional.nil? %>
-            <span class="h4 inline-block button-small white bg-red rounded right">
+            <span class="h4 inline-block button-small white bg-green rounded right">
              Unclaimed
              </span>
             <% else %>
-              <span class="h4 inline-block button-small white bg-green rounded right">
+              <span class="h4 inline-block button-small white bg-red rounded right">
              Claimed
              </span>
             <% end %>
           </h1>
         </div>
-        <div class="p2 center">
+        <div class="col col-12 p1">
+          <%= ticket.shortened_body %>
+        </div>
+        <div class="col col-12 p2 center">
+
          <%= link_to ticket do %>
           <button type="button" class="h5 button-blue">View</button>
          <% end %>
