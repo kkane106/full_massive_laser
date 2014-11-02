@@ -1,35 +1,9 @@
-<div class="container">
-	<div class="clearfix">
-		<div class="col col-12 p1">
-			<div class="overflow-hidden bg-white border rounded">
-				<h1 class="h2 m0">
-					<div class="p1 bg-yellow">
-						<h1><%= @user.name %></h1>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="clearfix">
-		<div class="col col-4">
-			<%= image_tag "#{@user.avatar}", class: "circle user-img p3" %>
-		</div>
-		<div class="col col-8 user-text">
-			<h2 class="h3 m0">
+<%= render "users/profile" %>
 
-		</div>
-		</div>
-		<% if @user.pro? %>
-			<%= render "pro_show" %>
-		<% end %>
-		</div>
-	</div>
-</div>
-</div>
-</div>
-</div>
+<hr>
 
-
-<% if @user.pro? %>
-<% else %>
-<%= render "users/user_show" %>
+<% if session[:user_id] == @user.id %>
+	<%= render "users/pro_show" %>
 <% end %>
+
+<hr>

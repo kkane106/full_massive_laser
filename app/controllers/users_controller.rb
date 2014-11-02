@@ -4,11 +4,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user_id])
+    @user = User.find(params[:id])
+    @professions = @user.professionals
     if @user.pro?
-      @tickets = @user.professionals.first.tickets
+      @claimed_tickets = Ticket.where(professional_id: @user.id)
     else
-      @tickets = ["lol"]
+      @tickets = @user.tickets
     end
   end
 

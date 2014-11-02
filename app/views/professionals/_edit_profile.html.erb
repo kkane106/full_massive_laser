@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="clearfix">
+    <div class="col col-12 p1">
+      <div class="overflow-hidden bg-white border rounded">
+        <div class="p2 bg-yellow">
+        	<h1 class="h2 m0">
+            <%= @user.name %>
+          </h1>
+         </div>
+         <div class="clearfix mb2 outline-blue">
+  				<div class="left p2 mr1">
+  					<%= image_tag "#{@user.avatar}", class: "circle ticket-img p3 left block" %>
+  				</div>
+  				<% if @user.pro? %>
+  					<br>
+  					<br>
+  					<br>
+	  				<div class="overflow-hidden">
+              <!-- Iterate through each profession with yrs exp and bio  -->
+	  					<% @professions.each do |profession| %>
+	  					<h1 class="h2 m0">
+            	<%= profession.profession.name %>
+          		</h1>
+              <br>
+		  					<%= form_for profession do |f| %>
+		  						Bio: <%= f.text_field :bio, size: "90" %>
+                  <br>
+		  						<%= f.submit "Update Bio", class: "h4 inline-block button-small bg-yellow rounded" %>
+		  					<% end %>
+              <% end %>
+	  				</div>
+  				<% end %>
+				</div>
+      </div>
+    </div>
+  </div>
+</div>
+
