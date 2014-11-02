@@ -25,6 +25,8 @@ $(document).ready(function() {
       type: 'PUT'
     }).success(function(response) {
       console.log(response)
+      $('[data-status]').remove()
+      $('[data-title]').after(response.toString)
     })
   })
 });

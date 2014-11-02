@@ -34,7 +34,7 @@ class TicketsController < ApplicationController
     professional_id = current_user.professionals.where(profession_id: profession_id)[0].id
     @ticket = Ticket.find(params[:id])
     @ticket.update(professional_id: professional_id)
-    return @ticket.to_json
+    render(partial: "tickets/ticket_status")
   end
 
   private
