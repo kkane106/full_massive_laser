@@ -1,0 +1,5 @@
+<% if @ticket.professional.nil? %>
+  <%= image_tag "grey-silhouette.png", data_professional_img: "nil", class: "circle ticket-img p3 right" %>
+<% else %>
+  <%= image_tag "#{@ticket.professional.user.avatar}", data_professional_img: "#{@ticket.professional_id}" , class: "circle ticket-img p3 right" %>
+<% end %>

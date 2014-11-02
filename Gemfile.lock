@@ -36,6 +36,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -56,6 +57,9 @@ GEM
       railties (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
+    hashie (3.3.1)
     hike (1.2.3)
     i18n (0.6.11)
     jbuilder (2.2.4)
@@ -68,6 +72,7 @@ GEM
     jwt (1.0.0)
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
+    method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.0)
     minitest (5.4.2)
@@ -94,6 +99,10 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     pg (0.17.1)
+    pry (0.10.0)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -147,6 +156,7 @@ GEM
       rdoc (~> 4.0)
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
+    slop (3.6.0)
     spring (1.1.3)
     sprockets (2.11.3)
       hike (~> 1.2)
@@ -161,9 +171,8 @@ GEM
     thread_safe (0.3.4)
     tilt (1.4.1)
     travis-lint (2.0.0)
-      json
-    turbolinks (2.5.1)
       coffee-rails
+      json
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
@@ -182,10 +191,12 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   faker
+  faraday
   jbuilder (~> 2.0)
   jquery-rails
   omniauth-google-oauth2
   pg
+  pry
   rails (= 4.1.6)
   rails_12factor
   rspec-rails
@@ -194,5 +205,4 @@ DEPENDENCIES
   shoulda-matchers
   spring
   travis-lint
-  turbolinks
   uglifier (>= 1.3.0)

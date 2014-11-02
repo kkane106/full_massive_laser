@@ -5,7 +5,11 @@ class TicketsController < ApplicationController
     redirect_to signin_path if session[:user_id] == nil
     @user = User.find(session[:user_id])
     redirect_to root_path unless @user.pro?
-    @tickets = Ticket.all
+    @tickets = []
+    @user.professions.each do |profession|
+      @tickets.push(profession.tickets.where(professional_id: nil))
+    end
+    @tickets.flatten!
   end
 
   def show
@@ -31,10 +35,14 @@ class TicketsController < ApplicationController
 
   def update
     profession_id = Ticket.find(params[:id]).profession_id
-    professional_id = current_user.professionals.where(profession_id: profession_id)[0].id
     @ticket = Ticket.find(params[:id])
-    @ticket.update(professional_id: professional_id)
-    return @ticket.to_json
+    professional_id = current_user.professionals.where(profession_id: profession_id)[0].id
+    if @ticket.professional_id == nil
+      @ticket.update(professional_id: professional_id)
+    else
+      @ticket.update(professional_id: nil)
+    end
+    render(partial: "tickets/ticket_show")
   end
 
   private

@@ -8,6 +8,10 @@ class Ticket < ActiveRecord::Base
     self.title.split("")[0..15].join("")+"..."
   end
 
+  def shortened_body
+    self.title.split("")[0..100].join("")+"..."
+  end
+
   def claimed?
   	if self.professional
   		return "Claimed"
