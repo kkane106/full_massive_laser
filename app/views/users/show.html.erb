@@ -1,8 +1,7 @@
 <%= render "users/profile" %>
 
 <hr>
-
-<% if session[:user_id] == @user.id %>
+<% if current_user.pro? && (current_user == @user) %>
 	<%= render "users/pro_show" %>
 <% end %>
 
