@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
 	resources :professionals
 
-	 get 'auth/:provider/callback', to: 'users#create'
+	get 'auth/:provider/callback', to: 'users#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'users#destroy', as: 'signout'
 
