@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-ruby "2.1.2"
+ruby "2.0.0"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -47,3 +47,5 @@ group :production do
 	gem 'rails_12factor'
 end
 
+gem "omniauth-google-oauth2"
+gem "dotenv-rails"
