@@ -5,7 +5,7 @@
 
         <div class="p2 bg-yellow">
           <h1 class="h2 m0">
-            Claimed Tickets
+            Your Claimed Tickets
           </h1>
         </div>
 
@@ -17,8 +17,8 @@
           </tr>
         </thead>
         <tbody>
-          <% @tickets.each do |ticket| %>
-          <tr>
+          <% @claimed_tickets.each do |ticket| %>
+          <tr data-link="<%= ticket_path(ticket) %>">
             <td><%= ticket.user.name %></td>
             <td><%= ticket.profession.name %></td>
             <td><%= ticket.title %></td>

@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @professions = @user.professionals
     if @user.pro?
-      @tickets = Ticket.where(professional_id: @user.id)
+      @claimed_tickets = Ticket.where(professional_id: @user.id)
     else
       @tickets = @user.tickets
     end
