@@ -3,11 +3,13 @@ class ProfessionalsController < ApplicationController
   end
 
   def new
+    @user = User.find(current_user.id)
+    @professional = @user.professionals.new
   end
 
   def create
     @user = User.find(current_user.id)
-    @professional = @user.professionals.create(professional_params)
+    @professional = @user.professionals.new(professional_params)
     if @professional.save
       flash[:success] = ["You've successfully added yourself as a professional! Now start helping out!"]
       redirect_to @user
