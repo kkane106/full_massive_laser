@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require_tree .
 
+$(document).ready(function() {
+  $('[data_claim="claim"]').click(function(event) {
+
+    console.log("clicked")
+    console.log($('[data-ticket]').data().ticket)
+    var url = "/tickets/" + $('[data-ticket]').data().ticket
+    $.ajax({
+      url: url,
+      type: 'PUT'
+    }).success(function(response) {
+      console.log(response)
+    })
+  })
+});
