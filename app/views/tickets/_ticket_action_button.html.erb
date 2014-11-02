@@ -1,0 +1,13 @@
+<% if @ticket.professional == nil %>
+  <% if current_user.pro? %>
+    <%= render :partial => "tickets/button", :locals => {color: "blue", content: "Claim"} %>
+  <% else %>
+    <%= render :partial => "tickets/button", :locals => {color: "gray", content: "Pending"} %>
+  <% end %>
+<% else %>
+  <% if @ticket.professional == current_user %>
+    <%= render :partial => "tickets/button", :locals => {color: "green", content: "Unclaim"} %>
+  <% else %>
+    <%= render :partial => "tickets/button", :locals => {color: "green", content: "Google Hangout"} %>
+  <% end %>
+<% end %>

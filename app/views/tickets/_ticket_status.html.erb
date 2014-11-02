@@ -1,0 +1,5 @@
+<% if @ticket.professional.nil? %>
+  <%= render partial: "tickets/status", :locals => {content: "Claimed", color: "red"} %>
+<% else %>
+  <%= render partial: "tickets/status", :locals => {content: "Unclaimed", color: "green"} %>
+<% end %>

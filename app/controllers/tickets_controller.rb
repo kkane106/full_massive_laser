@@ -30,13 +30,11 @@ class TicketsController < ApplicationController
   end
 
   def update
-    p "*"*30
-    p current_user
-    p profession_id = Ticket.find(params[:id]).profession_id
-    p professional_id = current_user.professionals.where(profession_id: profession_id)[0].id
-    p Ticket.find(params[:id])
-    Ticket.find(params[:id]).update(professional_id: professional_id)
-    p Ticket.find(params[:id])
+    profession_id = Ticket.find(params[:id]).profession_id
+    professional_id = current_user.professionals.where(profession_id: profession_id)[0].id
+    @ticket = Ticket.find(params[:id])
+    @ticket.update(professional_id: professional_id)
+    return @ticket.to_json
   end
 
   private

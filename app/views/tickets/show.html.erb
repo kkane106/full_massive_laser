@@ -6,15 +6,7 @@
         <div class="p2 bg-yellow">
           <h1 class="h2 m0">
             <%= @ticket.title %>
-            <% if @ticket.professional.nil? %>
-            <span class="h4 inline-block button-small white bg-red rounded right">
-             Unclaimed
-             </span>
-            <% else %>
-              <span class="h4 inline-block button-small white bg-green rounded right">
-             Claimed
-             </span>
-            <% end %>
+            <%= render "tickets/ticket_status" %>
           </h1>
         </div>
         <div class="p1">
@@ -22,21 +14,8 @@
             <div class="col col-4 p1">
               <%= image_tag "#{@ticket.user.avatar}", class: "circle ticket-img p3 left block" %>
             </div>
-            <div class="col col-4 p1 center ticket-btn">
-              <% if @ticket.professional == nil %>
-                <% if current_user.pro? %>
-                  <%= button_tag(type: 'submit', :class => 'button-blue mb1', data_claim: 'claim') {content_tag(:strong, 'Claim')} %>
-                <% else %>
-                  <%= button_tag(type: 'submit', :class => 'button-gray mb1', data_ghangout: 'ghangout') {content_tag(:strong, 'Google Hangout')} %>
-                <% end %>
-              <% else %>
-                <% if @ticket.professional == current_user %>
-                  <%= button_tag(type: 'submit', :class => 'button-green mb1', data: 'ghangout') {content_tag(:strong, 'Unclaim')} %>
-                <% else %>
-                  <%= button_tag(type: 'submit', :class => 'button-green mb1', data_ghangout: 'ghangout') {content_tag(:strong, 'Google Hangout')} %>
-                <% end %>
-              <% end %>
-
+            <div data-ticket-btn class="col col-4 p1 center ticket-btn">
+              <%= render "tickets/ticket_action_button" %>
             </div>
             <div class="col col-4 p1">
               <% if @ticket.professional.nil? %>
