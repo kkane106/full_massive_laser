@@ -14,5 +14,15 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'users#destroy', as: 'signout'
 
-	root to: "sessions#new"
+
+
+root 'welcome#index'
+
+  # The priority is based upon order of creation: first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
+
+
+# resources :users, :professions, :appointments, :professions
+# root :to => 'welcome#index'
+
 end

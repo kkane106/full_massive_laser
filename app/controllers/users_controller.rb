@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
 
+
   def show
     @user = User.find(params[:id])
-  end
-
-  def edit
-    @user = current_user
-
+    @professions = @user.professionals
+    if @user.pro?
+      @claimed_tickets = Ticket.where(professional_id: @user.id)
+    else
+      @tickets = @user.tickets
+    end
   end
 
   def update

@@ -18,18 +18,15 @@
 	  				<div class="overflow-hidden">
               <!-- Iterate through each profession with yrs exp and bio  -->
 	  					<% @professions.each do |profession| %>
-	  						<h1 class="h2 m0">
-	  							<%= profession.profession.name + " - " %>
-	  							<span class="h4 inline-block button-small bg-yellow rounded">
-	  								<%= profession.years_of_exp.to_s + " years" %>
-	  							</span>
-	  						</h1>
-	  						<div>
-	  							<%= profession.bio %>
-	  						</div>
-              <% if @user.id == session[:user_id] %>
-                <%= link_to "Edit", edit_professional_path(profession.id), class: "inline-block button-small white bg-yellow rounded" %>
-              <% end %>
+	  					<h1 class="h2 m0">
+            	<%= profession.profession.name %>
+          		</h1>
+              <br>
+		  					<%= form_for profession do |f| %>
+		  						Bio: <%= f.text_field :bio, size: "90" %>
+                  <br>
+		  						<%= f.submit "Update Bio", class: "h4 inline-block button-small bg-yellow rounded" %>
+		  					<% end %>
               <% end %>
 	  				</div>
   				<% end %>
