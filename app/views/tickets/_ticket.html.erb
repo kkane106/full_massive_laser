@@ -13,15 +13,23 @@
         <table class="table-light">
         <thead>
           <tr>
-            <th>User</th> <th>Category</th> <th>Title</th>
+            <th>User</th> <th>Category</th> <th>Title</th><th>Status</th>
           </tr>
         </thead>
         <tbody>
           <% @claimed_tickets.each do |ticket| %>
           <tr data-link="<%= ticket_path(ticket) %>">
+            <%= puts ticket %>
             <td><%= ticket.user.name %></td>
             <td><%= ticket.profession.name %></td>
-            <td><%= ticket.title %></td>
+            <td><%= ticket.shortened_title %></td>
+            <td>
+              <% if ticket.professional.nil? %>
+                <span class="bg-red white button-small rounded">Unclaimed</span>
+              <% else %>
+                <span class="bg-green white button-small rounded">Claimed</span>
+              <% end %>
+            </td>
           </tr>
           <% end %>
         </tbody>
