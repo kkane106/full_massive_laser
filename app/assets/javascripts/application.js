@@ -16,7 +16,23 @@
 //= require google
 
 $(document).ready(function() {
-  $('body').on("click", '[data_pro="true"]', function(event) {
+
+  $('[data_complete="true"]').on("click",function(event) {
+    event.preventDefault();
+    var ticket_update_url = "/tickets/complete/" + $('[data-ticket]').data().ticket;
+    $.ajax({
+      url: ticket_update_url,
+      type: 'PUT'
+    }).success(function(response) {
+      console.log("response")
+      console.log(response)
+      $('[data-ticket-show]').empty();
+      $('[data-ticket-show]').append(response.toString());
+      location.reload()
+    });
+  });
+
+  $('[data-ticket-btn]').on("click", '[data_pro="true"]', function(event) {
     event.preventDefault();
     var ticket_update_url = "/tickets/" + $('[data-ticket]').data().ticket;
     $.ajax({
@@ -28,4 +44,6 @@ $(document).ready(function() {
       location.reload()
     });
   });
+
+
 });
