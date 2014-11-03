@@ -14,7 +14,9 @@
  *= require_self
  *= require basscss
  */
-
+a:hover{
+  text-decoration: none;
+}
 
 .no-bullet{
   list-style-type: none;

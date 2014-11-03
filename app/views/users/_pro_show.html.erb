@@ -18,10 +18,9 @@
 						<tbody>
 							<% @claimed_tickets.each do |ticket| %>
 							<tr data-link="<%= ticket_path(ticket) %>">
-								<%= puts ticket %>
-								<td><%= ticket.user.name %></td>
+								<td><%= link_to "#{ticket.user.name}", ticket.user %></td>
 								<td><%= ticket.profession.name %></td>
-								<td><%= ticket.shortened_title %></td>
+								<td><%= link_to "#{ticket.shortened_title}", ticket, class: "no-underline" %></td>
 								<td>
 									<% if ticket.professional.nil? %>
 									<span class="bg-red white button-small rounded">Unclaimed</span>

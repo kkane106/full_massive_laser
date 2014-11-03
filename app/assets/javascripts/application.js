@@ -25,6 +25,7 @@ $(document).ready(function() {
     }).success(function(response) {
       $('[data-ticket-show]').empty();
       $('[data-ticket-show]').append(response.toString());
+      location.reload()
     });
   });
 });
