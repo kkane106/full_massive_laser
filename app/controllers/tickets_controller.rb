@@ -1,5 +1,8 @@
 class TicketsController < ApplicationController
 
+  def complete
+
+  end
 
   def index
     redirect_to signin_path if session[:user_id] == nil
