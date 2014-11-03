@@ -1,18 +1,18 @@
 <div class="clearfix mb2 white bg-dark-gray">
   <div class="left">
     <%= link_to "Home", root_path, class: "button py2 m0 button-nav-dark" %>
-    <% unless current_user.pro? %>
-      <%= link_to "New Ticket", new_ticket_path, class: "button py2 m0 button-nav-dark" %>
-    <% end %>
+    <%= link_to "Professions", professions_path, class: "button py2 m0 button-nav-dark" %>
     <% if session[:user_id] %>
+    <% unless current_user.pro? %>
+    <%= link_to "New Ticket", new_ticket_path, class: "button py2 m0 button-nav-dark" %>
+    <% end %>
     <%= link_to "My Account", user_path(session[:user_id]), class: "button py2 m0 button-nav-dark" %>
     <% end %>
 
   </div>
-  <div class="right">
   <% if session[:user_id].nil? %>
-      <%= link_to "Tickets", tickets_path, class: "button py2 m0 button-nav-dark" %>    
   <% else %>
+  <div class="right">
     <% if current_user.pro? %>
       <%= link_to "Tickets", tickets_path, class: "button py2 m0 button-nav-dark" %>
     <% end %>
