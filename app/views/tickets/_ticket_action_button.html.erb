@@ -6,10 +6,11 @@
   <% end %>
 <% else %>
   <% if @ticket.professional.user == current_user %>
-      <g:hangout render="createhangout" invites="[{ id : <%= @ticket.user.email %>, invite_type : 'EMAIL' }]">
-    <%= render :partial => "tickets/button", :locals => {color: "blue", content: "Unclaim", pro: "true"} %>
-  <% else %>      
-      <g:hangout render="createhangout" invites="[{ id : <%= @ticket.professional.user.email %>, invite_type : 'EMAIL' }]">
-</div>
+  <div class="col col-12 p1">
+    <g:hangout render="createhangout" invites="[{ id : <%=@ticket.user.email%>, invite_type : 'EMAIL' }]"></g:hangout>
+  </div>
+  <%= render :partial => "tickets/ghangout_unclaim_buttons", :locals => {email: "#{@ticket.user.email}", color: "blue", content: "Unclaim", pro: "true"} %>
+  <% else %>
+    <%= render :partial => "tickets/google_hangout", :locals => {email: "#{@ticket.professional.user.email}"} %>
   <% end %>
 <% end %>

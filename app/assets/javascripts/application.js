@@ -25,19 +25,7 @@ $(document).ready(function() {
     }).success(function(response) {
       $('[data-ticket-show]').empty();
       $('[data-ticket-show]').append(response.toString());
+      location.reload()
     });
   });
-
-  $('body').on("click", '[data_pro="true"]', function(event) {
-    event.preventDefault();
-    var ticket_update_url = "/tickets/" + $('[data-ticket]').data().ticket;
-    $.ajax({
-      url: ticket_update_url,
-      type: 'PUT'
-    }).success(function(response) {
-      $('[data-ticket-show]').empty();
-      $('[data-ticket-show]').append(response.toString());
-    });
-  });
-  
 });
