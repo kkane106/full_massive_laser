@@ -13,8 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-
+//= require google
 $(document).ready(function() {
+  $("#google").on("click",function(e){console.log("hello")})
+
   $('body').on("click", '[data_pro="true"]', function(event) {
     event.preventDefault()
     var ticket_update_url = "/tickets/" + $('[data-ticket]').data().ticket
