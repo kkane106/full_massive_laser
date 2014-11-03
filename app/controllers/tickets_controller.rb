@@ -1,6 +1,5 @@
 class TicketsController < ApplicationController
 
-
   def index
     redirect_to signin_path if session[:user_id] == nil
     redirect_to root_path unless current_user.pro?

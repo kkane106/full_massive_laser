@@ -1,10 +1,10 @@
 class SessionsController < ApplicationController
-skip_before_filter :require_login
-	def new
-	end
+  skip_before_filter :require_login
 
+  def new
+  end
 
-	 def create
+  def create
     @user = User.find_or_create_from_auth_hash(auth_hash)
     self.current_user = @user
     redirect_to '/'
