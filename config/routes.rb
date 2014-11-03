@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'home/show'
-
 	get 'welcome/index'
 	resources :users
 	resources :tickets

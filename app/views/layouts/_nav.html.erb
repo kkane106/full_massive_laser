@@ -6,12 +6,16 @@
     <%= link_to "New Ticket", new_ticket_path, class: "button py2 m0 button-nav-dark" %>
     <% end %>
     <%= link_to "My Account", user_path(session[:user_id]), class: "button py2 m0 button-nav-dark" %>
+
     <% end %>
 
   </div>
   <% if session[:user_id].nil? %>
-  <% else %>
   <div class="right">
+    <%= link_to "Sign in with Google", "/auth/google_oauth2", class: "button py2 m0 button-nav-dark" %>
+  </div>
+  <% else %>
+  <div class="right"> 
     <% if current_user.pro? %>
       <%= link_to "Tickets", tickets_path, class: "button py2 m0 button-nav-dark" %>
     <% end %>
@@ -19,3 +23,5 @@
   </div>
   <% end %>
 </div>
+
+

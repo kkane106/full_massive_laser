@@ -2,5 +2,7 @@
 
 <% if current_user.pro? && (current_user == @user) %>
 	<%= render "users/pro_show" %>
+	<% else %>
+	<%= render "users/user_show" %>
 <% end %>
 
