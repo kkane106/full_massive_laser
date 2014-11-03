@@ -6,8 +6,10 @@
   <% end %>
 <% else %>
   <% if @ticket.professional.user == current_user %>
+      <g:hangout render="createhangout" invites="[{ id : <%= @ticket.user.email %>, invite_type : 'EMAIL' }]">
     <%= render :partial => "tickets/button", :locals => {color: "blue", content: "Unclaim", pro: "true"} %>
-  <% else %>
-    <%= render :partial => "tickets/button", :locals => {color: "green", content: "Google Hangout", pro: "false"} %>
+  <% else %>      
+      <g:hangout render="createhangout" invites="[{ id : <%= @ticket.professional.user.email %>, invite_type : 'EMAIL' }]">
+</div>
   <% end %>
 <% end %>
