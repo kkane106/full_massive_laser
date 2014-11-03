@@ -4,8 +4,13 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @professions = @user.professionals
-    if @user.pro?
-      @claimed_tickets = Ticket.where(professional_id: @user.id)
+    if current_user == @user
+      @claimed_tickets = []
+      current_user.professionals.each do |professional|
+        @claimed_tickets.push(professional.tickets)
+      end
+      @claimed_tickets.flatten!
+      # @claimed_tickets = Ticket.where(professional_id: @user.id)
     else
       @tickets = @user.tickets
     end

@@ -2,23 +2,26 @@
   <div class="clearfix">
     <div class="col col-12 p1">
       <div class="overflow-hidden bg-white border rounded">
+        <!-- HEADER ROW -->
         <div class="p2 bg-yellow">
-        	<h1 class="h2 m0">
+          <h1 class="h2 m0 inline-block">
             <%= @user.name %>
           </h1>
+          <%= link_to "Sign up as PRO", new_professional_path, class: "right inline-block bg-dark-gray white button-small rounded" %>
         </div>
-        <div class="clearfix mb2">
-          <br>
-          <br>
-          <%= link_to "Create New Ticket", new_ticket_path, class: "inline-block button-small white bg-yellow rounded" %>
-          <div class="left p2 mr1">
-           <%= image_tag "#{@user.avatar}", class: "circle ticket-img p3 left block" %>
-         </div>
-         <% if @user.pro? %>
-         <br>
-         <br>
-         <br>
-         <div class="overflow-hidden">
+        <!-- HEADER ROW -->
+
+        <!-- WHITE BODY -->
+        <div class="clearfix mb2 p1">
+          <% unless current_user.pro? %>
+            <%= link_to "Create New Ticket", new_ticket_path, class: "inline-block button-small white bg-yellow rounded" %>
+          <% end %>
+            <div class="left p2 mr1">
+             <%= image_tag "#{@user.avatar}", class: "circle ticket-img p3 left block" %>
+           </div>
+
+          <% if @user.pro? %>
+          <div class="overflow-hidden">
           <!-- Iterate through each profession with yrs exp and bio  -->
           <% @professions.each do |profession| %>
           <h1 class="h2 m0">
@@ -26,19 +29,19 @@
             <span class="h4 inline-block button-small bg-yellow rounded">
              <%= profession.years_of_exp.to_s + " years" %>
            </span>
+
          </h1>
          <div>
           <%= profession.bio %>
         </div>
         <% if @user.id == session[:user_id] %>
         <%= link_to "Edit", edit_professional_path(profession.id), class: "inline-block button-small white bg-yellow rounded" %>
+        <%= link_to "DELETE", profession, method: "delete", class: "inline-block button-small white bg-red rounded" %>
         <% end %>
         <% end %>
       </div>
       <% end %>
     </div>
   </div>
-</div>
-</div>
 </div>
 

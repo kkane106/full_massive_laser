@@ -26,11 +26,22 @@ class ProfessionalsController < ApplicationController
 
   def update
 
-  	@user = User.find(session[:user_id])
-  	@professional = Professional.find(params[:id])
-  	if @professional.update(professional_params)
-  		redirect_to @user
-  	end
+    @user = User.find(session[:user_id])
+    @professional = Professional.find(params[:id])
+    if @professional.update(professional_params)
+      redirect_to @user
+    end
+  end
+
+  def destroy
+  	user = User.find(session[:user_id])
+    professional = Professional.find(params[:id])
+    if professional.destroy
+      flash[:success] = ["Removed a profession from your account"]
+      redirect_to user
+    else
+      flash[:error] ["you fucked something up"]
+    end
   end
 
   private

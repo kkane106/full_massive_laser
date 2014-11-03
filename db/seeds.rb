@@ -36,4 +36,15 @@ professionals.each do |professional|
 		)
 end
 
+100.times do
+Ticket.create(
+		user_id: User.all.sample.id,
+		professional_id: nil,
+		profession_id: Profession.all.sample.id,
+		title: Faker::Lorem.sentence(15),
+		body: Faker::Lorem.paragraph(1),
+		)
+end
+
+
 

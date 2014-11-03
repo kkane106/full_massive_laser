@@ -1,33 +1,41 @@
-<div class="p2 bg-yellow">
-  <h1 class="h2 m0">
-    Your Claimed Tickets
-  </h1>
+<div class="container">
+	<div class="clearfix">
+		<div class="col col-12 p1">
+			<div class="overflow-hidden bg-white border rounded">
+				<div class="p2 bg-yellow">
+					<h1 class="h2 m0">
+						Your Claimed Tickets
+					</h1>
+				</div>
+
+				<div class="overflow-scroll">
+					<table class="table-light">
+						<thead>
+							<tr>
+								<th>Client</th> <th>Category</th> <th>Title</th><th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @claimed_tickets.each do |ticket| %>
+							<tr data-link="<%= ticket_path(ticket) %>">
+								<%= puts ticket %>
+								<td><%= ticket.user.name %></td>
+								<td><%= ticket.profession.name %></td>
+								<td><%= ticket.shortened_title %></td>
+								<td>
+									<% if ticket.professional.nil? %>
+									<span class="bg-red white button-small rounded">Unclaimed</span>
+									<% else %>
+									<span class="bg-green white button-small rounded">Claimed</span>
+									<% end %>
+								</td>
+							</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+		</div>
+	</div>
 </div>
 
-<div class="overflow-scroll">
-  <table class="table-light">
-    <thead>
-      <tr>
-        <th>User</th> <th>Category</th> <th>Title</th><th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @claimed_tickets.each do |ticket| %>
-      <tr data-link="<%= ticket_path(ticket) %>">
-        <%= puts ticket %>
-        <td><%= ticket.user.name %></td>
-        <td><%= ticket.profession.name %></td>
-        <td><%= ticket.shortened_title %></td>
-        <td>
-          <% if ticket.professional.nil? %>
-          <span class="bg-red white button-small rounded">Unclaimed</span>
-          <% else %>
-          <span class="bg-green white button-small rounded">Claimed</span>
-          <% end %>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
 

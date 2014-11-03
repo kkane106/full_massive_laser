@@ -1,16 +1,34 @@
-<h1>Make yourself a pro!</h1>
-<%= form_for @professional do |f| %>
-<p>
-	<%= f.label :profession %>
-	<%= f.collection_select :profession_id,  Profession.all, :id, :name %>
-</p>
-<p>
-	<%= f.label :years_of_exp %>
-	<%= f.number_field :years_of_exp %>
-</p>
-<p>
-	<%= f.label :bio %>
-	<%= f.text_area :bio %>
-</p>
-<%= f.submit "Submit" %>
-<% end %>
+<div class="container">
+  <div class="clearfix">
+    <div class="col col-12 p1">
+      <div class="overflow-hidden bg-white border rounded">
+      	<div class="p2 bg-yellow">
+        	<h1 class="h2 m0">
+            Sign up as a professional!
+          </h1>
+        </div>
+        <div class="p3">
+      	<%= form_for @professional do |f| %>
+      	<p>
+      		<%= f.label :profession %>
+      		<br>
+      		<%= f.collection_select :profession_id,  Profession.all, :id, :name %>
+      	</p>
+      	<p>
+      		<%= f.label :years_of_exp %>
+      		<br>
+      		<%= f.number_field :years_of_exp %>
+      	</p>
+      	<p>
+      		<%= f.label :bio %>
+      		<br>
+      		<%= f.text_area :bio %>
+      	</p>
+      	<%= f.submit "Submit", class: "bg-yellow white" %>
+      	<% end %>   	        	
+        </div>
+    	</div>
+    </div>
+  </div>
+</div>
+
