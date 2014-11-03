@@ -24,7 +24,7 @@
           <div class="overflow-hidden">
           <!-- Iterate through each profession with yrs exp and bio  -->
           <% @professions.each do |profession| %>
-          <h1 class="h2 m0">
+          <h1 class="h2 mt2">
             <%= profession.profession.name + " - " %>
             <span class="h4 inline-block button-small bg-yellow rounded">
              <%= profession.years_of_exp.to_s + " years" %>

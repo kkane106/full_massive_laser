@@ -1,17 +1,34 @@
+<div class="container">
+  <div class="clearfix">
+    <div class="col col-12 p1">
+      <div class="overflow-hidden bg-white border rounded">
+      	<div class="p2 bg-yellow">
+        	<h1 class="h2 m0">
+            Create New Ticket
+          </h1>
+        </div>
+        <div class="p3">
+        	<%= form_for @ticket, :html => { :class => "sm-col-6"} do |f| %>
+        	<fieldset class="fieldset-reset">
+        		<legend class="h3 bold">Write a brief description of what broke and what needs fixing.</legend>
+        		<%= f.label :title %><br>
+        		<%= f.text_field :title, class: "block full-width field-light" %>
+
+        		<%= f.label :body %><br>
+        		<%= f.text_area :body, class: "block full-width field-light" %>
+
+        		<%= f.label :profession %><br>
+        		<%= f.collection_select :profession_id,  Profession.all, :id, :name %>
+
+        	</fieldset>
+        	<%= button_tag(type: 'submit', :class => "inline-block button-small white bg-yellow rounded") {content_tag(:strong, 'Submit')} %>
+        	<% end %>
+      	   	        	
+        </div>
+    	</div>
+    </div>
+  </div>
+</div>
 
 
-<%= form_for @ticket, :html => { :class => "sm-col-6"} do |f| %>
-<fieldset class="fieldset-reset">
-  <legend class="h3 bold">Create Ticket</legend>
-  <%= f.label :title %><br>
-  <%= f.text_field :title, class: "block full-width field-light" %>
 
-  <%= f.label :body %><br>
-  <%= f.text_area :body, class: "block full-width field-light" %>
-
-  <%= f.label :profession %><br>
-  <%= f.collection_select :profession_id,  Profession.all, :id, :name %>
-
-</fieldset>
-<%= button_tag(type: 'submit', :class => 'button-blue') {content_tag(:strong, 'Submit')} %>
-<% end %>

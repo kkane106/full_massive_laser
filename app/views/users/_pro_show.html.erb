@@ -12,7 +12,7 @@
 					<table class="table-light">
 						<thead>
 							<tr>
-								<th>Client</th> <th>Category</th> <th>Title</th><th>Status</th>
+								<th>Client</th> <th>Category</th> <th>Title</th><th>Status</th><th>Complete?</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -27,6 +27,13 @@
 									<span class="bg-red white button-small rounded">Unclaimed</span>
 									<% else %>
 									<span class="bg-green white button-small rounded">Claimed</span>
+									<% end %>
+								</td>
+								<td>
+									<% if ticket.closed == false %>
+									<span class="bg-green white button-small rounded">OPEN</span>
+									<% else %>
+									<span class="bg-gray white button-small rounded">CLOSED</span>
 									<% end %>
 								</td>
 							</tr>
