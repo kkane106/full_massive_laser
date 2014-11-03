@@ -1,7 +1,9 @@
 class TicketsController < ApplicationController
 
   def complete
-
+    @ticket = Ticket.find(params[:id])
+    @ticket.update(closed: true)
+    redirect_to tickets_path
   end
 
   def index

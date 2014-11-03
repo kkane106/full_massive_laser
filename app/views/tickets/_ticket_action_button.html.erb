@@ -6,11 +6,15 @@
   <% end %>
 <% else %>
   <% if @ticket.professional.user == current_user %>
-  <div class="col col-12 p1">
-    <g:hangout render="createhangout" invites="[{ id : <%=@ticket.user.email%>, invite_type : 'EMAIL' }]"></g:hangout>
-  </div>
-  <%= render :partial => "tickets/unclaim_button", :locals => {email: "#{@ticket.user.email}", color: "red", content: "Unclaim", pro: "true"} %>
-  <%= render :partial => "tickets/complete_button", :locals => {color: "blue", content: "Complete", pro: "true"} %>
+    <% if @ticket.closed == true %>
+      <%= render :partial => "tickets/complete_button", :locals => {color: "light-gray", content: "Completed", pro: "true"} %>
+    <% else %>
+      <div class="col col-12 p1">
+        <g:hangout render="createhangout" invites="[{ id : <%=@ticket.user.email%>, invite_type : 'EMAIL' }]"></g:hangout>
+      </div>
+      <%= render :partial => "tickets/unclaim_button", :locals => {email: "#{@ticket.user.email}", color: "red", content: "Unclaim", pro: "true"} %>
+      <%= render :partial => "tickets/complete_button", :locals => {color: "blue", content: "Complete", pro: "true"} %>
+    <% end %>
   <% else %>
     <%= render :partial => "tickets/google_hangout", :locals => {email: "#{@ticket.professional.user.email}"} %>
   <% end %>
