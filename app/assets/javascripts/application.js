@@ -14,18 +14,30 @@
 //= require jquery_ujs
 //= require_tree .
 //= require google
-$(document).ready(function() {
-  $("#google").on("click",function(e){console.log("hello")})
 
+$(document).ready(function() {
   $('body').on("click", '[data_pro="true"]', function(event) {
-    event.preventDefault()
-    var ticket_update_url = "/tickets/" + $('[data-ticket]').data().ticket
+    event.preventDefault();
+    var ticket_update_url = "/tickets/" + $('[data-ticket]').data().ticket;
     $.ajax({
       url: ticket_update_url,
       type: 'PUT'
     }).success(function(response) {
-      $('[data-ticket-show]').empty()
-      $('[data-ticket-show]').append(response.toString())
-    })
-  })
+      $('[data-ticket-show]').empty();
+      $('[data-ticket-show]').append(response.toString());
+    });
+  });
+
+  $('body').on("click", '[data_pro="true"]', function(event) {
+    event.preventDefault();
+    var ticket_update_url = "/tickets/" + $('[data-ticket]').data().ticket;
+    $.ajax({
+      url: ticket_update_url,
+      type: 'PUT'
+    }).success(function(response) {
+      $('[data-ticket-show]').empty();
+      $('[data-ticket-show]').append(response.toString());
+    });
+  });
+  
 });
