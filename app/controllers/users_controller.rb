@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:provider, :uid, :name, :email, :oauthtoken, :oauth_expires_at)
+    params.require(:user).permit(:provider, :uid, :name, :email, :oauthtoken, :oauth_expires_at, :avatar)
   end
 end
 
