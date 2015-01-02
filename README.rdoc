@@ -1,5 +1,7 @@
 # Sean Ellis, Kris Kane, Joe McGrath
 
+Production: http://helpfull.herokuapp.com/
+
 Most people today don't have the practical skills required to fix things around their house. It can be difficult for people in need to find the professionals who could best assist them. Our site will bring them together in one place. Professionals will be able to market their skills and provide assistance, and Clients will be able to find the help they need.
 
 - Allow Professional to create market and themselves
@@ -7,9 +9,4 @@ Most people today don't have the practical skills required to fix things around 
 - A simple and friendly user experience
 
 
-We will use
-- rails
-- FullCalendar.js
-- BassCss
 
-http://helpfull.herokuapp.com/
